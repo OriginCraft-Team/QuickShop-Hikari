@@ -33,6 +33,9 @@ dev-mode: false
 #Example: P1 buys $50 worth of stuff from P2.  Therefore, P1 loses $50, P2 gains $(1-0.05)*50, and the tax-account gains $(0.05)*50.
 tax: 0.05
 
+# Tax will only be applied if the purchase amount is greater than or equal to this threshold (decimal)
+tax-threshold: 20.0
+
 #The fake player where the tax money goes to.
 #Set this to "" to disable it (Taxing will still work but not deposit to any account)
 tax-account: tax

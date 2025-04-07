@@ -88,12 +88,16 @@ public class SimpleEconomyTransaction implements EconomyTransaction {
     if(this.benefit == null) {
       this.benefit = new SimpleBenefit();
     }
-    if(Double.doubleToLongBits(taxModifier) != Double.doubleToLongBits(0.0d)) { //Calc total money and apply tax
+
+    // Apply tax only if purchase amount exceeds threshold and taxModifier is not 0
+    if(amount >= Double.doubleToLongBits(plugin.getConfig().getDouble("tax-threshold")) && Double.doubleToLongBits(taxModifier) != Double.doubleToLongBits(0.0d)) {
       this.amountAfterTax = CalculateUtil.multiply(CalculateUtil.subtract(1, taxModifier), amount);
+      this.tax = CalculateUtil.subtract(amount, amountAfterTax); //Calc total tax
     } else {
       this.amountAfterTax = amount;
+      this.tax = 0; //No tax
     }
-    this.tax = CalculateUtil.subtract(amount, amountAfterTax); //Calc total tax
+
     if(from == null && to == null) {
       lastError = "From and To cannot be null in same time.";
       throw new IllegalArgumentException("From and To cannot be null in same time.");

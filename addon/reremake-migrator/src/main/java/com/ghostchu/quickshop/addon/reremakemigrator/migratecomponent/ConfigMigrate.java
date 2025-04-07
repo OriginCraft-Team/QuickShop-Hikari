@@ -19,7 +19,7 @@ public class ConfigMigrate extends AbstractMigrateComponent {
   // tax-free-for-unlimited-shop
   //
   private final String[] DIRECT_COPY_KEYS = new String[]{
-          "game-language", "enabled-languages", "mojangapi-mirror", "dev-mode", "tax", "tax-account", "unlimited-shop-owner-change",
+          "game-language", "enabled-languages", "mojangapi-mirror", "dev-mode", "tax", "tax-threshold", "tax-account", "unlimited-shop-owner-change",
           "unlimited-shop-owner-change-account", "show-tax", "respect-item-flag", "currency", "logging", "trying-fix-banlance-insuffient",
           "include-offlineplayer-list", "economy-type", "use-decimal-format", "decimal-format", "send-display-item-protection-alert",
           "send-shop-protection-alert", "chat-type", "limits", "shop-block", "shop.cost", "shop.refund",
